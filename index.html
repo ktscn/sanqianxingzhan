@@ -1,3 +1,4 @@
+<!--三千星斩的个人主页~-->
 <!DOCTYPE html>
 <html>
 <head>
@@ -18,10 +19,9 @@
 
 <body>
 			  
-<!-- Content -->
-<div class="cd-hero">
 
-	<!-- Navigation -->        
+<div class="cd-hero">
+     
 	<div class="cd-slider-nav">
 		<nav class="navbar">
 
@@ -181,9 +181,9 @@
 
 				</div>
 				
-			</div> <!-- .cd-full-width -->
+			</div> 
 		</li>
-	</ul> <!-- .cd-hero-slider -->
+	</ul> 
 
 	<footer class="tm-footer">
 		<p class="tm-copyright-text">Copyright &copy; 2020.一只三千.<a target="_blank" href="https://ktscn.github.io">星斩网站</a></p>
@@ -199,7 +199,7 @@
 
 </div>
 
-<!-- load JS files -->
+
 <script src="/sanqianxingzhan/jquery-1.11.3.min.js"></script>        
 <script src="/sanqianxingzhan/tether.min.js"></script> 
 <script src="/sanqianxingzhan/bootstrap.min.js"></script>            
@@ -210,12 +210,11 @@
 
 	function adjustHeightOfPage(pageNo) {
 	   
-		// Get the page height
+	
 		var totalPageHeight = 15 + $('.cd-slider-nav').height()
 								+ $(".cd-hero-slider li:nth-of-type(" + pageNo + ") .js-tm-page-content").height() + 160
 								+ $('.tm-footer').height();
 
-		// Adjust layout based on page height and window height
 		if(totalPageHeight > $(window).height()) 
 		{
 			$('.cd-hero-slider').addClass('small-screen');
@@ -229,38 +228,33 @@
 
 	}
 
-	/*
-		Everything is loaded including images.
-	*/
+	
 	$(window).load(function(){
 
-		adjustHeightOfPage(1); // Adjust page height
+		adjustHeightOfPage(1); 
 
-		/* Gallery pop up
-		-----------------------------------------*/
+		
+		
 		$('.tm-img-gallery').magnificPopup({
 			delegate: 'a', // child items selector, by clicking on it popup will open
 			type: 'image',
 			gallery:{enabled:true}                
 		});
 
-		/* Collapse menu after click 
-		-----------------------------------------*/
+		
 		$('#tmNavbar a').click(function(){
 			$('#tmNavbar').collapse('hide');
 
 			adjustHeightOfPage($(this).data("no")); // Adjust page height       
 		});
 
-		/* Browser resized 
-		-----------------------------------------*/
+		
 		$( window ).resize(function() {
 			var currentPageNo = $(".cd-hero-slider li.selected .js-tm-page-content").data("page-no");
 			adjustHeightOfPage( currentPageNo );
 		});
 
-		// Remove preloader
-		// https://ihatetomatoes.net/create-custom-preloading-screen/
+		
 		$('body').addClass('loaded');
 				   
 	});
